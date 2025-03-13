@@ -1,1 +1,10 @@
-console.log('time to play check if the conection is correct between the html and the js scrip')
+console.log('time to play')
+
+function getComputerChoice(){
+    let options = ['rock','paper','scissors']
+    let computerChoice=options[Math.floor(Math.random()*3)]
+    return computerChoice
+
+}
+
+console.log(getComputerChoice())
