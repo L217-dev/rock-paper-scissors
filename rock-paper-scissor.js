@@ -1,0 +1,1 @@
+console.log('time to play check if the conection is correct between the html and the js scrip')
