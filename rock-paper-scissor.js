@@ -1,52 +1,69 @@
 console.log('time to play')
-let HumanScore=0;
-let ComputerScore=0;
+let humanScore=0;
+let computerScore=0;
+let boardPlayerCount=0;
+let boardComputerCount=0;
+const gameResult=document.querySelector("#gameResult")
+const result=document.querySelector("#result")
+const playRock = document.querySelector('#rock')
+const playScissor=document.querySelector('#scissor')
+const playPaper=document.querySelector('#paper')
+const boardPlayer=document.querySelector("#playerScore")
+const boardComputer=document.querySelector("#computerScore")
+
 function getComputerChoice(){
     // this fuction create this options for the computer and select one using rando numbers between 0 and 2
-    const options = ['rock','paper','scissors'];
+    const options = ['rock','paper','scissor'];
     const computerChoice=options[Math.floor(Math.random()*3)];
     return computerChoice;
 //this function could be make it whit using if , if else and else to select the rock, paper or scissor 
 }
+    
+function playRound(playerSelection){
+    const computerChoice=getComputerChoice();
+    gameResult.textContent=''
+    if (playerSelection===computerChoice){
+        result.textContent=`This is Draw the score is: you ${humanScore}, Computer ${computerScore}`
+        }
+    else if ((playerSelection==='rock' && computerChoice==='scissor') || (playerSelection==='paper' && computerChoice==='rock') || (playerSelection==='scissor' && computerChoice==='paper') ) {
+        humanScore++;
+        result.textContent=`This is Win the score is: you ${humanScore}, Computer ${computerScore}`  ;
+    } else {
+        computerScore++;
+        result.textContent=`This is Losses the score is: you ${humanScore}, Computer ${computerScore}`;
+    }
+    
+    function whoWin(){
+    if (humanScore===5){
+        gameResult.textContent='You win, choose again to play another macht'
+        boardPlayerCount++
+        boardPlayer.textContent=boardPlayerCount
+        humanScore=0;
+        computerScore=0;
+    }
+    else if ( computerScore==5){
+        gameResult.textContent='Computer win, choose again to play another macht'
+        boardComputerCount++
+        boardComputer.textContent=boardComputerCount
+        humanScore=0;
+        computerScore=0;}
+    }
 
-function getHumanChoice(){
-    const HumanChoice=window.prompt('Select one of these rock, paper, scissors right now this game is cases sensitve');
- return HumanChoice;
- // this function get the human choice using a prompt window
+    whoWin()
 }
 
-function playGame(){
-    let HumanScore=0;
-    let ComputerScore=0;
-    function playRound(humanChoice,computerChoice){
-        if (humanChoice===computerChoice){
-            return console.log(`This is Draw the score is: you ${HumanScore}, Computer ${ComputerScore}`);
-        }
-        else if ((humanChoice==='rock' && computerChoice==='scissors') || (humanChoice==='paper' && computerChoice==='rock') || (humanChoice==='scissors' && computerChoice==='paper') ) {
-            HumanScore++;
-            return console.log(`This is Win the score is: you ${HumanScore}, Computer ${ComputerScore}`)   ;
-        } else {
-            ComputerScore++;
-            return console.log(`This is Losses the score is: you ${HumanScore}, Computer ${ComputerScore}`);
-    
-        }
-    
-    }
 
-    let humanSelection=getHumanChoice();
-    let computerSelection=getComputerChoice();
-    playRound(humanSelection,computerSelection)
-    
- 
+playRock.addEventListener('click', ()=>{
+    const playerSelection='rock'
+    playRound(playerSelection)
+})
 
-    if (HumanScore===ComputerScore){
-        console.log(`This is Draw game the score is: you ${HumanScore}, Computer ${ComputerScore}`)
-    }
-    else if (HumanScore>ComputerScore){
-        console.log(`You win the game  the score is: you ${HumanScore}, Computer ${ComputerScore}`)
-    } else{
-        console.log(`You Losses the game  the score is: you ${HumanScore}, Computer ${ComputerScore}`)
-    }
-}
+playScissor.addEventListener('click', ()=>{
+    const playerSelection='scissor'
+    playRound(playerSelection)
+})
 
-playGame()
+playPaper.addEventListener('click', ()=>{
+    const playerSelection='paper'
+    playRound(playerSelection)
+})
