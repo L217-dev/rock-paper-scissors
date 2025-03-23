@@ -3,11 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="rock-paper-scissor.js" > </script>
+    <script src="rock-paper-scissor.js" defer></script>
+    <link rel="stylesheet" href="style.css">
     <title>Rock Paper or Scissor Game</title>
+    
 </head>
 <body>
-    <p>Realoded the page to play againg</p>
-    <p>the second version will realeses inpage game</p>
+    <div class="game-container">
+        <h1>Rock Paper Scissors</h1>
+
+        <div class="score-board">
+            <div class="score">Player: <span id="playerScore">0</span></div>
+            <div class="score">Computer: <span id="computerScore">0</span></div>
+        </div>
+
+        <div class="choices">
+            <button class="choice-btn" id="rock">
+                <img src="./image/rock.jpeg" alt="Rock">
+            </button>
+            <button class="choice-btn" id="paper">
+                <img src="./image/paper.jpeg" alt="Paper">
+            </button>
+            <button class="choice-btn" id="scissor">
+                <img src="./image/sicssor.jpeg" alt="Scissors">
+            </button>
+        </div>
+
+        <div id="result">Choose your weapon!</div>
+        <div id="gameResult"></div>
+    </div>
 </body>
 </html>
