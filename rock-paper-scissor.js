@@ -37,21 +37,7 @@ function playGame(){
     let computerSelection=getComputerChoice();
     playRound(humanSelection,computerSelection)
     
-    humanSelection=getHumanChoice();
-    computerSelection=getComputerChoice()
-    playRound(humanSelection,computerSelection)
-    
-    humanSelection=getHumanChoice();
-    computerSelection=getComputerChoice()
-    playRound(humanSelection,computerSelection)
-
-    humanSelection=getHumanChoice();
-    computerSelection=getComputerChoice()
-    playRound(humanSelection,computerSelection)
-
-    humanSelection=getHumanChoice();
-    computerSelection=getComputerChoice()
-    playRound(humanSelection,computerSelection)
+ 
 
     if (HumanScore===ComputerScore){
         console.log(`This is Draw game the score is: you ${HumanScore}, Computer ${ComputerScore}`)
